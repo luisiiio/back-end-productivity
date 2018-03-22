@@ -5,8 +5,8 @@ var Task = mongoose.Schema({
     description : { type : String },
     duration : { type : String },
     timer : { type : String },
-    completed : { type : Boolean },
-    date_init: { type: Date },
+    completed : { type : Boolean, default: false },
+    date_init: { type: Date, default: Date.now },
     date_end: { type: Date }
 });
 
