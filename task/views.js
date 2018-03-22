@@ -1,8 +1,12 @@
 var models = require('./models');
 
 
+// View for list all task
 var listTask = function(req, res){
-   
+    models.task.find().exec(function(error, tasks) {
+        if(error) res.status(500).json(error);
+        else res.status(200).json(tasks);
+    });
 };
 
 
@@ -25,6 +29,8 @@ var createTask = function(req, res){
     }
     else res.status(400).json({"message": "incomplete parameters"});
 };
+
+
 
 var updateTask = function(req, res){
     
