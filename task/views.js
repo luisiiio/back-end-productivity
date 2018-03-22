@@ -36,8 +36,17 @@ var updateTask = function(req, res){
     
 };
 
+
+// View for delete one task
 var deleteTask = function(req, res){
+    console.log(req.body);
+    var _id = req.body._id;
     
+    models.task.remove({_id: _id}).exec(function(error, tasks) {
+        if(error) res.status(500).json(error);
+        else res.status(200).json(tasks);
+    });;
+
 };
 
 
